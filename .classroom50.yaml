@@ -1,0 +1,13 @@
+schema: "classroom50/repo-config/v1"
+classroom: "dp1-2627"
+assignment: "groupproject"
+secret: "dp1isthebest"
+owner:
+  username: "Alfonsoperea"
+  id: 175117931
+  accepted_at: "2026-09-18T14:18:36Z"
+source:
+  owner: "gii-is-DP1"
+  owner_id: 70514562
+  repo: "group-project-seed"
+  branch: "main"

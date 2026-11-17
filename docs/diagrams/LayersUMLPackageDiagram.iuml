@@ -1,0 +1,140 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+skinparam linetype ortho
+skinparam shadowing false
+skinparam classAttributeIconSize 0
+
+package "Capa de presentacion\nControladores" as Controllers {
+  class AuthController <<controller>>
+  class UserRestController <<controller>>
+  class GameRestController <<controller>>
+  class TurnRestController <<controller>>
+  class AccusationRestController <<controller>>
+  class SuggestionRestController <<controller>>
+  class NotebookRestController <<controller>>
+  class BonusCardRevealRestController <<controller>>
+  class BoardController <<controller>>
+  class DevelopersController <<controller>>
+  class ExceptionHandlerController <<controller advice>>
+}
+
+package "Capa de logica de negocio\nServicios" as Services {
+  class AuthService <<service>>
+  class UserService <<service>>
+  class AuthoritiesService <<service>>
+  class UserDetailsServiceImpl <<service>>
+  class GameService <<service>>
+  class TurnService <<service>>
+  class AccusationService <<service>>
+  class SuggestionService <<service>>
+  class BoardService <<service>>
+  class CardService <<service>>
+  class BonusCardService <<service>>
+  class BonusCardRevealService <<service>>
+  class NotebookService <<service>>
+  class WeaponTokenService <<service>>
+}
+
+package "Capa de persistencia\nRepositorios" as Repositories {
+  class UserRepository <<repository>>
+  class AuthoritiesRepository <<repository>>
+  class GameRepository <<repository>>
+  class PlayerRepository <<repository>>
+  class TurnRepository <<repository>>
+  class BoardRepository <<repository>>
+  class GameCardRepository <<repository>>
+  class GameDeckRepository <<repository>>
+  class BonusCardRepository <<repository>>
+  class BonusCardRevealRepository <<repository>>
+  class BonusDeckRepository <<repository>>
+  class SolutionRepository <<repository>>
+  class NotebookMarkRepository <<repository>>
+  class WeaponTokenRepository <<repository>>
+  class SuggestionRepository <<repository>>
+}
+
+AuthController --> AuthService
+AuthController --> UserService
+UserRestController --> UserService
+UserRestController --> AuthoritiesService
+GameRestController --> GameService
+TurnRestController --> TurnService
+AccusationRestController --> AccusationService
+SuggestionRestController --> SuggestionService
+BoardController --> BoardService
+NotebookRestController --> NotebookService
+BonusCardRevealRestController --> BonusCardRevealService
+
+AuthService --> UserService
+AuthService --> AuthoritiesService
+UserDetailsServiceImpl --> UserRepository
+UserService --> UserRepository
+UserService --> AuthoritiesRepository
+AuthoritiesService --> AuthoritiesRepository
+
+GameService --> GameRepository
+GameService --> PlayerRepository
+GameService --> UserService
+GameService --> CardService
+GameService --> NotebookService
+GameService --> WeaponTokenService
+GameService --> WeaponTokenRepository
+GameService --> BoardService
+GameService --> TurnRepository
+
+TurnService --> TurnRepository
+TurnService --> PlayerRepository
+TurnService --> GameRepository
+TurnService --> UserService
+TurnService --> BoardService
+TurnService --> CardService
+
+AccusationService --> GameRepository
+AccusationService --> PlayerRepository
+AccusationService --> TurnRepository
+AccusationService --> SolutionRepository
+AccusationService --> CardService
+AccusationService --> UserService
+AccusationService --> TurnService
+
+SuggestionService --> GameRepository
+SuggestionService --> PlayerRepository
+SuggestionService --> TurnRepository
+SuggestionService --> SuggestionRepository
+SuggestionService --> BoardService
+SuggestionService --> WeaponTokenService
+SuggestionService --> CardService
+SuggestionService --> UserService
+SuggestionService --> TurnService
+
+BoardService --> BoardRepository
+BoardService --> PlayerRepository
+BoardService --> GameRepository
+BoardService --> UserService
+BoardService --> TurnRepository
+
+CardService --> GameCardRepository
+CardService --> GameDeckRepository
+CardService --> BonusCardRepository
+CardService --> BonusDeckRepository
+CardService --> SolutionRepository
+CardService --> PlayerRepository
+
+BonusCardService --> BonusCardRepository
+BonusCardService --> BonusDeckRepository
+BonusCardService --> BonusCardRevealRepository
+BonusCardService --> GameCardRepository
+
+BonusCardRevealService --> GameRepository
+BonusCardRevealService --> PlayerRepository
+BonusCardRevealService --> UserService
+BonusCardRevealService --> CardService
+
+NotebookService --> NotebookMarkRepository
+NotebookService --> GameRepository
+NotebookService --> PlayerRepository
+NotebookService --> UserService
+WeaponTokenService --> WeaponTokenRepository
+WeaponTokenService --> BoardService
+@enduml

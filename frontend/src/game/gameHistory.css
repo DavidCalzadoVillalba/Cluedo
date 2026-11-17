@@ -1,0 +1,53 @@
+.history-page {
+    min-height: calc(100vh - 66px);
+    padding: clamp(1.25rem, 5vw, 4rem);
+    background: linear-gradient(rgba(2, 12, 30, .48), rgba(2, 9, 22, .62)),
+        url('../static/images/fondo_mansion.png') center / cover fixed;
+}
+
+.history-panel {
+    width: min(100%, 1250px);
+    margin: 0 auto;
+    padding: clamp(0.9rem, 1.8vh, 1.8rem) clamp(1rem, 2.5vw, 2rem);
+    color: #fff8e8;
+    border: 2px solid #e8bd67;
+    border-radius: 18px;
+    background: linear-gradient(145deg, rgba(5, 27, 52, .96), rgba(3, 16, 34, .96));
+    box-shadow: 0 14px 40px rgba(0, 0, 0, .5), inset 0 0 0 5px rgba(232, 189, 103, .12);
+    box-sizing: border-box;
+}
+
+.history-panel h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .8rem;
+    margin: 0 0 clamp(0.6rem, 1.4vh, 1.2rem);
+    color: #fff8e8;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(1.3rem, 2.8vw, 2rem);
+    text-align: center;
+}
+
+.history-panel h1 svg { color: #f1c65f; }
+.history-table-scroll { overflow-x: auto; }
+.history-table { width: 100%; border-collapse: collapse; font-family: Georgia, 'Times New Roman', serif; }
+.history-table th, .history-table td { padding: .9rem 1rem; border-bottom: 1px solid rgba(255, 248, 232, .22); text-align: left; }
+.history-table th { color: #fff8e8; background: rgba(20, 62, 99, .78); font-size: 1.1rem; white-space: nowrap; }
+.history-table th svg { margin-right: .45rem; color: #f1c65f; }
+.history-table tbody tr:hover { background: rgba(232, 189, 103, .08); }
+.history-result { display: inline-flex; align-items: center; gap: .45rem; padding: .35rem .8rem; border: 1px solid; border-radius: 999px; font-weight: 700; white-space: nowrap; }
+.history-result.is-won { color: #b8f29b; border-color: #74d956; background: rgba(57, 125, 31, .2); }
+.history-result.is-lost { color: #ff9b91; border-color: #f05e58; background: rgba(160, 35, 35, .2); }
+.history-message { margin: 1rem 0; padding: 1.5rem; border: 1px solid rgba(232, 189, 103, .55); border-radius: 12px; background: rgba(0, 0, 0, .18); text-align: center; }
+.history-error { color: #ffaaa1; }
+
+@media (max-width: 700px) {
+    .history-page { min-height: calc(100vh - 56px); background-attachment: scroll; }
+    .history-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
+    .history-table, .history-table tbody, .history-table tr, .history-table td { display: block; width: 100%; }
+    .history-table tr { margin-bottom: .9rem; padding: .4rem .75rem; border: 1px solid rgba(232, 189, 103, .38); border-radius: 10px; }
+    .history-table td { display: grid; grid-template-columns: 8.5rem minmax(0, 1fr); gap: .65rem; padding: .55rem 0; border-bottom: 1px solid rgba(255, 248, 232, .12); overflow-wrap: anywhere; }
+    .history-table td:last-child { border-bottom: 0; }
+    .history-table td::before { content: attr(data-label); color: #f1c65f; font-weight: 700; }
+}

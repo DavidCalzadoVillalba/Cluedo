@@ -1,0 +1,36 @@
+.user-create-page {
+  min-height: calc(100vh - 70px);
+  padding: clamp(1.25rem, 5vw, 4rem);
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, rgba(5, 20, 36, .86), rgba(8, 32, 52, .68)), url("/images/fondo_mansion.png") center / cover fixed;
+  color: #f5f0e5;
+}
+.user-create-card { width: min(100%, 1050px); padding: clamp(1.25rem, 4vw, 3rem); border: 2px solid #c99b43; border-radius: 20px; background: rgba(6, 25, 43, .96); box-shadow: 0 0 0 5px rgba(201, 155, 67, .16), 0 24px 70px #0009; }
+.user-create-heading { display: flex; align-items: center; justify-content: center; gap: 1rem; margin: 0 0 2rem; text-align: left; }
+.user-create-heading-icon { display: grid; place-items: center; width: 3.5rem; height: 3.5rem; border-radius: 50%; color: #f2c765; font-size: 2rem; }
+.user-create-heading p { margin: 0; color: #e0bc6d; letter-spacing: .13em; text-transform: uppercase; font-size: .8rem; }
+.user-create-heading h1 { margin: .1rem 0 0; color: #fff8e9; font: 600 clamp(1.6rem, 4vw, 2.3rem) Georgia, serif; }
+.user-create-content { display: grid; grid-template-columns: minmax(190px, .75fr) 2fr; gap: clamp(1.5rem, 4vw, 3rem); }
+.user-avatar-panel { padding: 1rem 1.5rem 1rem .5rem; border-right: 1px solid #c99b4388; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.user-avatar-preview, .user-avatar-placeholder { width: 150px; height: 150px; border: 4px solid #d9ae51; border-radius: 50%; box-shadow: 0 0 18px #d9ae5166; object-fit: cover; }
+.user-avatar-placeholder { display: grid; place-items: center; background: radial-gradient(circle, #dfbd69, #94702c); color: #10243a; font: bold 3rem Georgia, serif; }
+.avatar-url-label { margin: 1.5rem 0 .4rem; color: #e9d9b2; }
+.avatar-url-control { display: flex; align-items: center; gap: .5rem; width: 100%; color: #eac45f; }
+.avatar-url-control input { min-width: 0; border: 1px solid #b88b37; color: #fff; background: #0b2134; }
+.user-create-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem 1.5rem; align-content: center; }
+.create-field label { display: flex; align-items: center; gap: .55rem; margin-bottom: .45rem; color: #f1dfb4; font: 1.05rem Georgia, serif; }
+.create-field label svg { color: #e5bf5b; }
+.create-field input, .create-field select { min-height: 48px; border: 1px solid #c9a24b; border-radius: 10px; color: #fff8e9; background-color: #091d30; box-shadow: inset 0 0 8px #0006; }
+.create-field input:focus, .create-field select:focus, .avatar-url-control input:focus { border-color: #f4cd68; box-shadow: 0 0 0 .2rem #d7ad4c44; background-color: #0b2134; color: white; }
+.create-field select option { background: #091d30; }
+.user-create-note { grid-column: 1 / -1; display: flex; gap: .8rem; align-items: center; padding: .85rem 1rem; border: 1px solid #bd984b; border-radius: 12px; color: #eee3c9; background: #102a40; }
+.user-create-note svg { flex: 0 0 auto; color: #e5bf5b; font-size: 1.5rem; }
+.user-create-actions { display: flex; justify-content: center; gap: 1rem; margin-top: 2rem; }
+.user-create-actions .btn { min-width: 210px; padding: .8rem 1.25rem; display: inline-flex; justify-content: center; align-items: center; gap: .65rem; border: 2px solid #d8b354; border-radius: 10px; font-size: 1.05rem; }
+.create-cancel { color: #f5ecd7 !important; }
+.create-cancel:hover { color: #fff !important; background: #ffffff16 !important; }
+.create-submit { color: #1e1a0d !important; background: linear-gradient(#f7d77b, #dca83d) !important; font-weight: 700; }
+.create-submit:hover { background: linear-gradient(#ffe69b, #e9b94d) !important; }
+@media (max-width: 700px) { .user-create-content { grid-template-columns: 1fr; } .user-avatar-panel { border-right: 0; border-bottom: 1px solid #c99b4388; padding: 0 0 1.2rem; } .user-avatar-preview, .user-avatar-placeholder { width: 110px; height: 110px; } }
+@media (max-width: 520px) { .user-create-fields { grid-template-columns: 1fr; } .user-create-actions { flex-direction: column-reverse; } .user-create-actions .btn { width: 100%; } }

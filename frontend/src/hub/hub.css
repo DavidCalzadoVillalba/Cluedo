@@ -1,0 +1,141 @@
+.hub-page {
+    min-height: calc(100dvh - 66px);
+    height: calc(100dvh - 66px);
+    max-height: calc(100dvh - 66px);
+    box-sizing: border-box;
+    padding: clamp(0.75rem, 1.8vh, 1.5rem) clamp(1rem, 2.5vw, 2rem);
+    background: linear-gradient(rgba(2, 12, 30, 0.48), rgba(2, 9, 22, 0.68)),
+        url('../static/images/fondo_mansion.png') center / cover fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hub-nav-header {
+    width: min(100%, 1250px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: clamp(0.6rem, 1.4vh, 1.2rem);
+    flex-wrap: wrap;
+    flex-shrink: 0;
+}
+
+.hub-back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.6rem 1.3rem;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #fff8e8;
+    background: linear-gradient(145deg, #092c53, #051a33);
+    border: 2px solid #e8bd67;
+    border-radius: 10px;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+    transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s, color 0.15s;
+}
+
+.hub-back-btn:hover {
+    color: #fff;
+    transform: translateY(-2px);
+    border-color: #f1c65f;
+    box-shadow: 0 6px 18px rgba(241, 198, 95, 0.35);
+}
+
+.hub-tabs-container {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: rgba(4, 16, 32, 0.92);
+    padding: 0.4rem 0.5rem;
+    border: 2px solid #e8bd67;
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(232, 189, 103, 0.15);
+}
+
+.hub-tab-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.65rem 1.4rem;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: rgba(255, 248, 232, 0.78);
+    background: transparent;
+    border: 1.5px solid transparent;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.hub-tab-btn:hover {
+    color: #fff8e8;
+    background: rgba(232, 189, 103, 0.12);
+}
+
+.hub-tab-btn.active {
+    color: #1a1405;
+    background: linear-gradient(145deg, #f1c65f, #d4a742);
+    border-color: #e8bd67;
+    box-shadow: 0 4px 14px rgba(241, 198, 95, 0.35);
+}
+
+.hub-tab-btn svg {
+    font-size: 1.15rem;
+}
+
+.hub-content {
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 0.5rem;
+}
+
+/* Remove duplicated page wrappers/backgrounds when components are rendered inside hub */
+.hub-content .profile-page,
+.hub-content .history-page,
+.hub-content .community-page,
+.hub-content .active-games-page,
+.hub-content .users-admin-page {
+    min-height: auto;
+    padding: 0;
+    background: transparent;
+}
+
+@media (max-width: 700px) {
+    .hub-page {
+        padding: clamp(0.4rem, 1.2vh, 0.8rem) 0.5rem;
+    }
+
+    .hub-nav-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hub-tabs-container {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .hub-tab-btn {
+        flex: 1;
+        justify-content: center;
+        padding: 0.55rem 0.9rem;
+        font-size: 0.95rem;
+    }
+
+    .hub-back-btn {
+        justify-content: center;
+        width: 100%;
+    }
+}

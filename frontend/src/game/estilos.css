@@ -1,0 +1,558 @@
+.create-game-page,
+.lobby-page {
+    background-color: #161618;
+    min-height: calc(100dvh - 66px);
+    height: calc(100dvh - 66px);
+    color: white;
+    font-family: system-ui, -apple-system, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(0.5rem, 2vh, 1.8rem) 1.5rem;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.lobby-page {
+    background: linear-gradient(rgba(10, 12, 18, 0.35), rgba(10, 12, 18, 0.55)),
+        url('/images/backgroundSala.png') center / cover no-repeat fixed;
+}
+
+.cluedo-title,
+.lobby-brand {
+    text-align: center;
+    margin-bottom: clamp(0.6rem, 1.8vh, 1.5rem);
+}
+
+.cluedo-title img,
+.lobby-brand img {
+    max-width: clamp(140px, 20vw, 240px);
+    height: auto;
+}
+
+.cluedo-title h1 {
+    font-size: clamp(2rem, 5vw, 4.5rem);
+    letter-spacing: 6px;
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 900;
+}
+
+.cluedo-title h1 span {
+    color: #fdfdfd;
+}
+
+.cluedo-title h1 span.red-u {
+    color: #d34026;
+}
+
+
+.cluedo-title p {
+    color: #d34026;
+    font-size: 0.9rem;
+    letter-spacing: 3px;
+    margin-top: 0px;
+    font-weight: bold;
+}
+
+.create-game-card,
+.lobby-card {
+    background-color: #1a1b1e;
+    border: 1px solid #d34026;
+    border-radius: 8px;
+    padding: clamp(1rem, 2.5vh, 1.8rem) clamp(1.2rem, 3vw, 2.2rem);
+    width: 100%;
+    max-width: 800px;
+    max-height: calc(100dvh - 120px);
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.lobby-page .lobby-card {
+    background-color: rgba(26, 27, 30, 0.94);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 16px 44px rgba(0, 0, 0, 0.75);
+}
+
+.card-header h2 {
+    color: #d4af37;
+    font-size: 1.6rem;
+    margin-top: 0;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+.card-header p {
+    color: #999;
+    font-size: 0.95rem;
+    margin-bottom: clamp(0.8rem, 1.8vh, 1.5rem);
+    border-bottom: 1px dotted #333;
+    padding-bottom: clamp(0.6rem, 1.2vh, 1rem);
+}
+
+.form-row {
+    display: flex;
+    gap: clamp(1rem, 2vw, 2rem);
+    margin-bottom: clamp(1rem, 2vh, 2rem);
+}
+
+.form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    color: #d34026;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.form-group input,
+.form-group select {
+    background-color: #0d0d0e;
+    border: 1px solid #2a2a2a;
+    color: white;
+    padding: clamp(8px, 1.2vh, 14px);
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #d34026;
+}
+
+.identity-section {
+    margin-bottom: clamp(1rem, 2vh, 2rem);
+}
+
+.identity-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 1rem;
+}
+
+.identity-header h3 {
+    color: #d34026;
+    font-size: 0.8rem;
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.identity-header span {
+    color: #4a5c88;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.characters-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1rem;
+}
+
+.character-card {
+    --char-card-color: #555;
+    --char-card-glow: rgba(255, 255, 255, 0.15);
+    --char-card-glow-diffuse: rgba(255, 255, 255, 0.08);
+    background-color: #232428;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    padding: 1.2rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.25s ease, border-color 0.25s ease, background-color 0.2s ease;
+    box-sizing: border-box;
+    aspect-ratio: 4 / 5;
+    position: relative;
+}
+
+.character-card.char-amapola {
+    --char-card-color: #ef4444;
+    --char-card-glow: rgba(239, 68, 68, 0.55);
+    --char-card-glow-diffuse: rgba(239, 68, 68, 0.28);
+}
+
+.character-card.char-rubio {
+    --char-card-color: #f59e0b;
+    --char-card-glow: rgba(245, 158, 11, 0.55);
+    --char-card-glow-diffuse: rgba(245, 158, 11, 0.28);
+}
+
+.character-card.char-blanco {
+    --char-card-color: #e2e8f0;
+    --char-card-glow: rgba(226, 232, 240, 0.6);
+    --char-card-glow-diffuse: rgba(226, 232, 240, 0.3);
+}
+
+.character-card.char-prado {
+    --char-card-color: #22c55e;
+    --char-card-glow: rgba(34, 197, 94, 0.6);
+    --char-card-glow-diffuse: rgba(34, 197, 94, 0.3);
+}
+
+.character-card.char-celeste {
+    --char-card-color: #0ea5e9;
+    --char-card-glow: rgba(14, 165, 233, 0.55);
+    --char-card-glow-diffuse: rgba(14, 165, 233, 0.28);
+}
+
+.character-card.char-mora {
+    --char-card-color: #a855f7;
+    --char-card-glow: rgba(168, 85, 247, 0.55);
+    --char-card-glow-diffuse: rgba(168, 85, 247, 0.28);
+}
+
+.character-card:hover {
+    background-color: #2a2b30;
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 12px var(--char-card-glow-diffuse);
+    transform: translateY(-2px);
+}
+
+.character-card.selected {
+    border-color: var(--char-card-color);
+    background-color: #2a2b30;
+    box-shadow: 0 0 20px var(--char-card-glow), 0 0 35px var(--char-card-glow-diffuse);
+    transform: translateY(-2px);
+}
+
+.character-card.has-card-image {
+    padding: 0;
+    overflow: hidden;
+    background-color: #17181c;
+}
+
+.character-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    user-select: none;
+    pointer-events: none;
+}
+
+.character-color {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    margin-bottom: 12px;
+}
+
+.character-card p {
+    margin: 0;
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #ccc;
+    text-transform: uppercase;
+}
+
+.form-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-cancel {
+    flex: 1;
+    background-color: transparent;
+    border: 1px solid #333;
+    color: #999;
+    padding: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+.btn-cancel:hover {
+    background-color: #222;
+    color: white;
+}
+
+.btn-create {
+    flex: 2;
+    background-color: #d34026;
+    border: none;
+    color: white;
+    padding: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+.btn-create:hover {
+    background-color: #e54b30;
+}
+
+.btn-create:disabled {
+    background-color: #5b2d24;
+    color: #aa8178;
+    cursor: not-allowed;
+}
+
+.lobby-brand {
+    margin-bottom: 1.5rem;
+}
+
+.lobby-brand img {
+    width: min(260px, 70vw);
+}
+
+.lobby-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.lobby-eyebrow {
+    color: #d34026;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin: 0 0 0.6rem;
+}
+
+.lobby-header h1,
+.lobby-board-placeholder h1 {
+    color: #d4af37;
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.lobby-code {
+    color: #999;
+    margin: 0.6rem 0 0;
+}
+
+.lobby-code strong {
+    color: white;
+    letter-spacing: 2px;
+}
+
+.lobby-capacity {
+    color: #d4af37;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.lobby-capacity strong {
+    font-size: 1.5rem;
+}
+
+.lobby-capacity span,
+.lobby-section-heading span {
+    color: #999;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+}
+
+.lobby-divider {
+    border-bottom: 1px dotted #333;
+    margin: 1.8rem 0;
+}
+
+.lobby-section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1rem;
+}
+
+.lobby-section-heading h2 {
+    color: #d34026;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.lobby-players {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.8rem;
+}
+
+.lobby-player-card {
+    background-color: #232428;
+    border: 1px solid #303136;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    min-height: 76px;
+    padding: 0.8rem;
+}
+
+.lobby-player-avatar {
+    align-items: center;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    flex: 0 0 42px;
+    font-size: 1.1rem;
+    font-weight: 800;
+    height: 42px;
+    justify-content: center;
+}
+
+.lobby-player-info {
+    min-width: 0;
+}
+
+.lobby-player-info h3 {
+    color: white;
+    font-size: 0.95rem;
+    margin: 0 0 0.25rem;
+}
+
+.lobby-player-info p {
+    color: #999;
+    font-size: 0.78rem;
+    margin: 0;
+}
+
+.lobby-host-badge {
+    background-color: #443b20;
+    border-radius: 4px;
+    color: #d4af37;
+    font-size: 0.65rem;
+    margin-left: auto;
+    padding: 0.35rem;
+    text-transform: uppercase;
+}
+
+.lobby-kick-button {
+    background-color: #4a221c;
+    border: none;
+    color: #e5735d;
+    cursor: pointer;
+    font-weight: 800;
+}
+
+.lobby-kick-button:hover {
+    background-color: #d34026;
+    color: white;
+}
+
+.lobby-actions {
+    align-items: center;
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    margin-top: clamp(0.8rem, 2vh, 1.5rem);
+    position: relative;
+}
+
+.lobby-status,
+.lobby-waiting-message {
+    color: #999;
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+.lobby-waiting-message {
+    color: #d4af37;
+    text-align: center;
+    width: 100%;
+}
+
+.lobby-start-button {
+    flex: 0 0 auto;
+    padding: 12px 24px;
+}
+
+.lobby-inline-error {
+    bottom: -1.5rem;
+    color: #e5735d;
+    font-size: 0.75rem;
+    left: 0;
+    margin: 0;
+    position: absolute;
+}
+
+.lobby-loading,
+.lobby-error,
+.lobby-board-placeholder {
+    text-align: center;
+}
+
+.lobby-error p,
+.lobby-board-placeholder p {
+    color: #999;
+    margin: 1rem 0 2rem;
+}
+
+@media (max-width: 640px) {
+    .lobby-page {
+        background-attachment: scroll;
+    }
+
+    .create-game-card,
+    .lobby-card {
+        padding: 1.5rem;
+    }
+
+    .lobby-header {
+        flex-direction: column;
+    }
+
+    .lobby-capacity {
+        align-items: flex-start;
+    }
+
+    .lobby-players {
+        grid-template-columns: 1fr;
+    }
+
+    .lobby-actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .lobby-start-button {
+        width: 100%;
+    }
+}
+
+/* Character Colors matching the image */
+.color-amapola {
+    background-color: #d81b60;
+}
+
+.color-rubio {
+    background-color: #f39c12;
+}
+
+.color-blanco {
+    background-color: #bdc3c7;
+}
+
+.color-prado {
+    background-color: #27ae60;
+}
+
+.color-celeste {
+    background-color: #2980b9;
+}
+
+.color-mora {
+    background-color: #8e44ad;
+}

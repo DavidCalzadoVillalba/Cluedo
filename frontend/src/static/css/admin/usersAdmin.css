@@ -1,0 +1,50 @@
+.users-admin-page {
+  min-height: calc(100vh - 70px);
+  padding: clamp(1.25rem, 5vw, 4rem);
+  background: linear-gradient(135deg, rgba(5, 20, 36, .86), rgba(8, 32, 52, .68)), url("/images/fondo_mansion.png") center / cover fixed;
+  color: #f5f0e5;
+}
+.users-admin-card {
+  width: min(100%, 1100px);
+  margin: 0 auto;
+  padding: clamp(1.2rem, 3vw, 2.5rem);
+  border: 2px solid #c99b43;
+  border-radius: 18px;
+  background: rgba(6, 25, 43, .96);
+  box-shadow: 0 0 0 5px rgba(201, 155, 67, .15), 0 24px 70px #0009;
+}
+.users-admin-header { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; margin-bottom: 1.5rem; }
+.users-admin-title { display: flex; align-items: center; gap: 1rem; }
+.users-admin-title > svg { flex: 0 0 auto; color: #eac45f; font-size: 2.2rem; }
+.users-admin-title p { margin: 0; color: #e0bc6d; font-size: .8rem; letter-spacing: .13em; text-transform: uppercase; }
+.users-admin-title h1 { margin: .1rem 0; color: #fff8e9; font: 600 clamp(1.7rem, 4vw, 2.3rem) Georgia, serif; }
+.users-admin-title span { color: #d8d2c5; }
+.users-search { display: flex; align-items: center; gap: .75rem; margin: 0 0 1rem; padding: .6rem .9rem; border: 1px solid #bd984b; border-radius: 9px; color: #eac45f; background: #091d30; }
+.users-search input { border: 0; color: #fff8e9; background: transparent; box-shadow: none !important; }
+.users-search input:focus { color: #fff8e9; background: transparent; }
+.users-search input::placeholder { color: #bdb8ad; }
+.users-create-button { display: inline-flex; align-items: center; gap: .6rem; padding: .75rem 1.1rem !important; border: 1px solid #e1b64e !important; border-radius: 9px !important; color: #1e1a0d !important; background: linear-gradient(#f7d77b, #dca83d) !important; font-weight: 700 !important; white-space: nowrap; }
+.users-create-button:hover { background: linear-gradient(#ffe69b, #e9b94d) !important; }
+.users-admin-table-wrap { overflow-x: auto; border: 1px solid #bd984b; border-radius: 12px; }
+.users-admin-table { margin: 0 !important; color: #f5f0e5 !important; }
+.users-admin-table thead th { padding: .95rem 1rem; border-bottom: 1px solid #bd984b; color: #f1d991; background: #112b41; }
+.users-admin-table tbody td { padding: .8rem 1rem; border-color: #bd984b55; color: #f5f0e5; background: #0b2134; vertical-align: middle; }
+.users-admin-table tbody tr:hover td { background: #142f46; }
+.users-admin-table .btn-group { gap: .5rem; }
+.users-admin-table .btn { display: inline-flex; align-items: center; gap: .4rem; border-radius: 7px !important; }
+.users-empty-state { padding: 2rem !important; color: #d8d2c5 !important; text-align: center; }
+.user-status-badge { display: inline-block; padding: .25rem .7rem; border: 1px solid currentColor; border-radius: 20px; font-size: .88rem; font-weight: 600; white-space: nowrap; }
+.status-active { color: #a8ed80; background: #1d4828; }
+.status-suspended { color: #ffd278; background: #59421c; }
+.status-blocked { color: #ff9b9b; background: #5a2528; }
+.users-list-footer { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-top: 1rem; color: #e8ddc4; }
+.users-pagination { display: flex; align-items: center; gap: .75rem; }
+.users-pagination .btn { display: inline-grid; place-items: center; border-color: #c99b43; color: #f3d477; }
+.users-pagination .btn:disabled { border-color: #6f6a5c; color: #777; }
+.users-pagination span { min-width: 110px; text-align: center; }
+@media (max-width: 600px) {
+  .users-admin-header { align-items: stretch; flex-direction: column; }
+  .users-create-button { justify-content: center; }
+  .users-list-footer { align-items: stretch; flex-direction: column; }
+  .users-pagination { justify-content: center; }
+}
