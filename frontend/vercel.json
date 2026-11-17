@@ -2,11 +2,11 @@
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "https://TU-BACKEND.onrender.com/api/:path*"
+      "destination": "https://cluedo-backend-ou6q.onrender.com/api/:path*"
     },
     {
       "source": "/v3/api-docs/:path*",
-      "destination": "https://TU-BACKEND.onrender.com/v3/api-docs/:path*"
+      "destination": "https://cluedo-backend-ou6q.onrender.com/v3/api-docs/:path*"
     },
     {
       "source": "/(.*)",
