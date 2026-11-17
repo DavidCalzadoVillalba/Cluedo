@@ -1,8 +1,15 @@
 import axios from "axios";
 import TokenService from "./token.service";
 
+const getBaseURL = () => {
+    const envUrl = import.meta.env.VITE_API_URL;
+    if (!envUrl) return "/api/v1";
+    const cleaned = envUrl.replace(/\/$/, "");
+    return cleaned.endsWith("/api/v1") ? cleaned : `${cleaned}/api/v1`;
+};
+
 const instance = axios.create({
-    baseURL: "/api/v1",
+    baseURL: getBaseURL(),
     headers: {
         "Content-Type": "application/json",
     },

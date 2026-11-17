@@ -33,7 +33,7 @@ const getErrorMessage = (error, fallback) =>
         ? error.response.data.message
         : typeof error.response?.data === 'string' ? error.response.data : fallback;
 
-const REFRESH_INTERVAL = 2000;
+const REFRESH_INTERVAL = 3500;
 const STEP_ANIMATION_MS = 190;
 const AUTO_FINISH_SUGGESTION_DELAY_MS = 2500;
 
